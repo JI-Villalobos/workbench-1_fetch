@@ -9,6 +9,20 @@ const baseUrl = "https://platzi-avo.vercel.app"
 
 const appNode = document.querySelector('#app')
 
+//intl
+//1 format -dates
+//2 format -currency
+
+const formatPrice = (price) => {
+    
+    const newPrice = new window.Intl.NumberFormat('en-EN', {
+        style: 'currency',
+        currency: 'USD',
+    }).format(price)
+
+    return newPrice;
+}
+
 //web api fetch
 //conect with the server
 window
@@ -27,10 +41,11 @@ window
             //title
             const title = document.createElement('h2')
             title.textContent = item.name
+            title.className = "text-2xl text-red-600"
 
             //price
             const price = document.createElement('div')
-            price.textContent = item.price
+            price.textContent = formatPrice(item.price)
 
             const container = document.createElement('div')
             container.append(image, title, price)
