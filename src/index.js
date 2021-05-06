@@ -49,6 +49,7 @@ window
 
             const container = document.createElement('div')
             container.append(image, title, price)
+            container.className = "shadow-xl rounded"
 
             allItems.push(container)
         });
